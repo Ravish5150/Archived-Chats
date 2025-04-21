@@ -1,0 +1,182 @@
+:root {
+  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  /* Color scheme */
+  --background-color: #0E0E10;           /* Deep matte black */
+  --container-bg: #1C1C1F;               /* Graphite gray (surface) */
+  --primary-color: #00D1FF;              /* Neon cyan – techy pop */
+  --highlight-color: #1B9AAA;            /* Muted teal (secondary accent) */
+  --text-color: #E6E6E6;                 /* Subtle light gray-white */
+  --muted-text-color: #AAAAAA;           /* For less-emphasized text */
+
+  /* Box shadows */
+  --box-shadow-light: 0 4px 20px rgba(0, 0, 0, 0.3);
+  --box-shadow-image: 0 2px 8px rgba(0, 0, 0, 0.25);
+
+  /* Optional additions */
+  --button-hover-bg: #00bfe6;            /* Slightly dimmer neon cyan for hover */
+  --link-color: #00D1FF;
+  --link-hover-color: #1B9AAA;
+  --border-color: #2A2A2D;               /* Subtle border for containers */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: var(--muted-text-color);
+}
+
+.bio-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: var(--container-bg);
+  border-radius: 12px;
+  box-shadow: var(--box-shadow-light);
+  transition: transform 0.3s ease-in-out;
+}
+
+.bio-container:hover {
+  transform: scale(1.02); /* Slightly enlarges on hover for emphasis */
+}
+
+.bio-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.bio-header:hover {
+  transform: translateY(-10px); /* Subtle lift on header hover */
+}
+
+.profile-pic {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--highlight-color);
+  transition: transform 0.3s ease, border 0.3s ease;
+}
+
+.profile-pic:hover {
+  transform: scale(1.1); /* Slight zoom effect on hover */
+  border-color: var(--primary-color); /* Highlight border color */
+}
+
+.bio-info {
+  text-align: center;
+}
+
+.bio-info h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: var(--primary-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.bio-info h1::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary-color);
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+.bio-info h1:hover::after {
+  transform: scaleX(1); /* Underline effect on hover */
+}
+
+.bio-info h2 {
+  margin: 5px 0;
+  font-weight: normal;
+  color: var(--highlight-color);
+  transition: color 0.3s ease-in-out;
+}
+
+.bio-info h2:hover {
+  color: var(--primary-color); /* Change color on hover */
+}
+
+.bio-info p {
+  margin-top: 10px;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+.gallery {
+  margin-top: 30px;
+}
+
+.gallery h3 {
+  text-align: center;
+  margin-bottom: 15px;
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  padding: 10px;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow-image);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.05); /* Slight zoom effect on hover */
+  filter: grayscale(50%); /* Apply grayscale on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Larger shadow effect */
+}
+
+.gallery-grid h2 {
+  text-align: center;
+  color: var(--highlight-color);
+  font-size: 1rem;
+  opacity: 1;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.gallery-grid img:hover + h2 {
+  opacity: 1;
+  transform: translateY(0); /* Reveal text on image hover */
+}
+
+@media (min-width: 768px) {
+  .bio-header {
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .profile-pic {
+    margin-right: 30px;
+  }
+
+  .bio-info {
+    flex: 1;
+  }
+}

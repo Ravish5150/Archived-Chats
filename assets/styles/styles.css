@@ -1,0 +1,105 @@
+:root {
+  --font-family: Arial, sans-serif;
+
+  /* Updated color scheme */
+  --background-color: #0E0E10;         /* Deep matte black */
+  --card-background: #1C1C1F;          /* Graphite gray */
+  --primary-color: #00D1FF;            /* Neon cyan – techy pop */
+  --highlight-color: #1B9AAA;          /* Muted teal */
+  --text-color: #E6E6E6;               /* Subtle light gray-white */
+  --image-background: #1C1C1F;         /* Match surface tone for consistency */
+  
+  --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Slightly deeper shadow for dark UI */
+  --button-hover-bg: #00bfe6;            /* Slightly dimmer neon cyan for hover */
+}
+
+body {
+  font-family: var(--font-family);
+  background: var(--background-color);
+  margin: 0;
+  padding: 20px;
+  color: var(--text-color);
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s, transform 0.3s;
+}
+
+a:hover {
+  color: var(--highlight-color);
+  transform: translateX(5px); /* Adds a slight horizontal shift */
+}
+
+h1 {
+  text-align: center;
+  color: var(--primary-color);
+  transition: color 0.3s ease;
+}
+
+h1:hover {
+  color: var(--highlight-color); /* Change heading color on hover */
+}
+
+.team-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.member-card {
+  background: var(--card-background);
+  border-radius: 12px;
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.member-card:hover {
+  transform: translateY(-10px); /* More noticeable lift on hover */
+  cursor: pointer;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4); /* Darker and more pronounced shadow */
+}
+
+.member-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  background-color: var(--image-background);
+  filter: grayscale(0%);
+  transition: transform 0.3s, filter 0.3s;
+}
+
+.member-image:hover {
+  filter: grayscale(50%);
+  transform: scale(1.05); /* Slight zoom effect for images */
+}
+
+.member-info {
+  padding: 15px;
+}
+
+.member-name {
+  font-size: 1.2em;
+  margin: 10px 0 5px;
+  color: var(--text-color);
+  transition: color 0.3s ease;
+}
+
+.member-name:hover {
+  color: var(--primary-color); /* Change name color on hover */
+}
+
+.member-role {
+  color: var(--highlight-color);
+  font-size: 0.95em;
+  transition: color 0.3s ease;
+}
+
+.member-role:hover {
+  color: var(--primary-color); /* Slight hover effect on role */
+}
